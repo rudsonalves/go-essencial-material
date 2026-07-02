@@ -1,0 +1,4 @@
+mode: set
+example/p01.go:8.13,10.2 1 0
+example/calculator/calculator.go:3.24,5.2 1 1
+example/calculator/calculator.go:7.24,9.2 1 0

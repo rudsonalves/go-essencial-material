@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+	matrix := [3][3]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+
+	sum := 0
+	for _, row := range matrix {
+		for _, element := range row {
+			sum += element
+		}
+	}
+
+	fmt.Println("Somas dos elementos", sum)
+}

@@ -1,0 +1,3 @@
+{"name":"Caderno","price":1550}
+{"name":"Caneta","price":345}
+{"name":"Borracha","price":235}
