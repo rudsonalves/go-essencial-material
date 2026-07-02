@@ -46,7 +46,7 @@ func (p Philosopher) String() string {
 	return fmt.Sprintf("%s (%d/%d porções)", p.Name, p.RemainingPortions, p.Portions)
 }
 
-func diner(p *Philosopher, fork *sync.Mutex, wg *sync.WaitGroup) {
+func diner(p *Philosopher, fork chan struct{}, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	for !p.Finished() {
@@ -54,13 +54,13 @@ func diner(p *Philosopher, fork *sync.Mutex, wg *sync.WaitGroup) {
 		time.Sleep(randomDelay())
 
 		fmt.Printf("%s aguardando o garfo...\n", p.Name)
-		fork.Lock()
+		<-fork
 
 		fmt.Printf("%s pegou o garfo\n", p.Name)
 		p.Eat()
 		fmt.Printf("%s comeu uma porção (%d/%d porções)\n", p.Name, p.RemainingPortions, p.Portions)
 
-		fork.Unlock()
+		fork <- struct{}{}
 		fmt.Printf("%s devolveu o garfo\n", p.Name)
 	}
 
@@ -68,10 +68,8 @@ func diner(p *Philosopher, fork *sync.Mutex, wg *sync.WaitGroup) {
 }
 
 func main() {
-	var (
-		fork sync.Mutex
-		wg   sync.WaitGroup
-	)
+	var wg sync.WaitGroup
+	fork := make(chan struct{}, 1)
 
 	s := NewPhilosopher("Sócrates")
 	p := NewPhilosopher("Platão")
@@ -83,9 +81,10 @@ func main() {
 	fmt.Println()
 
 	wg.Add(3)
-	go diner(&s, &fork, &wg)
-	go diner(&p, &fork, &wg)
-	go diner(&a, &fork, &wg)
+	go diner(&s, fork, &wg)
+	go diner(&p, fork, &wg)
+	go diner(&a, fork, &wg)
 
+	fork <- struct{}{}
 	wg.Wait()
 }
