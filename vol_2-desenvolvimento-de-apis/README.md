@@ -1,8 +1,9 @@
 # Go Essencial — Volume 2: Desenvolvimento de APIs
 
-Este volume reúne uma trilha progressiva para construção de APIs HTTP em Go,
-partindo de conceitos fundamentais de `net/http` até tópicos de deploy,
-observabilidade e operação.
+Este volume reúne a trilha de estudo focada em desenvolvimento de APIs em Go.
+
+O conteúdo está em evolução: capítulos, exemplos e revisões são publicados de
+forma incremental.
 
 ## Objetivos
 
@@ -10,9 +11,28 @@ observabilidade e operação.
 - Evoluir do essencial para padrões de produção.
 - Manter um material consultável para estudo e referência.
 
-## Estrutura do Volume
+## Status Atual
 
-O conteúdo principal está em `book/`, organizado por capítulos:
+Neste repositório, o Volume 2 está em andamento.
+
+- Novos capítulos e seções são adicionados gradualmente.
+- Durante a revisão do conteúdo, os códigos são reimplementados e testados.
+- A documentação deste volume acompanha o estado publicado em `codigo/`.
+
+## Estrutura Publicada
+
+O conteúdo disponível no momento está em `codigo/`, com os seguintes capítulos
+já presentes:
+
+- `cap01/` (seções `s01` a `s06`)
+- `cap03/` (práticas `p01` a `p05` e seções `s01` a `s07`)
+- `cap04/` (projeto `go-list/`)
+- `cap05/` (seção `s01`)
+- `cap07/` (seções `s01` a `s03`)
+
+## Organização Planejada do Volume
+
+O roteiro de temas segue esta progressão:
 
 1. HTTP com net/http
 2. Roteamento
@@ -28,7 +48,21 @@ O conteúdo principal está em `book/`, organizado por capítulos:
 12. Observabilidade
 13. Deploy
 
-## Geração do PDF
+## Como Executar Exemplos
+
+Exemplo simples:
+
+```bash
+go run codigo/cap01/s01/main.go
+```
+
+Exemplo de projeto estruturado:
+
+```bash
+go run codigo/cap04/go-list/cmd/*.go
+```
+
+## Geração de Material
 
 Use o Makefile da raiz do repositório:
 
@@ -36,4 +70,4 @@ Use o Makefile da raiz do repositório:
 make pdf VOLUME=2
 ```
 
-O PDF final é gerado em `dist/` na raiz do projeto.
+O artefato final é gerado conforme a configuração do projeto principal.
