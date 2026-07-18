@@ -2,16 +2,13 @@
 
 Este repositório concentra os materiais públicos do projeto Go Essencial.
 
-No momento, o Volume 1 (Fundamentos) está consolidado e o Volume 2
-(Desenvolvimento de APIs) está em processo de adição, revisão e evolução.
+O foco aqui é disponibilizar, de forma simples, os artefatos de estudo do Volume 1 (Fundamentos): PDF consolidado e exemplos de código em Go organizados por capítulo.
 
 ## Conteúdo Disponível
 
 - Livro em PDF: `vol_1-fundamentos/livro-golang.pdf`
 - Exemplos em Go: `vol_1-fundamentos/codigo/`
 - Visão do volume: `vol_1-fundamentos/README.md`
-- Estrutura inicial do Volume 2: `vol_2-desenvolvimento-de-apis/`
-- Códigos já publicados do Volume 2: `vol_2-desenvolvimento-de-apis/codigo/`
 
 ## Estrutura
 
@@ -19,7 +16,7 @@ No momento, o Volume 1 (Fundamentos) está consolidado e o Volume 2
 .
 ├── README.md
 ├── LICENSE.md
-├── vol_1-fundamentos/
+└── vol_1-fundamentos/
 	├── livro-golang.pdf
 	├── README.md
 	└── codigo/
@@ -27,23 +24,14 @@ No momento, o Volume 1 (Fundamentos) está consolidado e o Volume 2
 		├── cap05/
 		├── ...
 		└── cap17/
-└── vol_2-desenvolvimento-de-apis/
-	├── README.md
-	└── codigo/
-		├── cap01/
-		├── cap03/
-		├── cap04/
-		├── cap05/
-		└── cap07/
 ```
 
 ## Como Usar
 
 Leitura sequencial:
 
-1. Comece pelo PDF em `vol_1-fundamentos/livro-golang.pdf`.
+1. Comece pelo PDF em `vol_1-fundamentos/vol_1-fundamentos.pdf`.
 2. Ao longo da leitura, rode os exemplos correspondentes em `vol_1-fundamentos/codigo/`.
-3. Para acompanhar o avanço do Volume 2, consulte `vol_2-desenvolvimento-de-apis/README.md`.
 
 Consulta rápida:
 
@@ -54,12 +42,6 @@ Exemplo:
 
 ```bash
 go run vol_1-fundamentos/codigo/cap05/p01/p01.go
-```
-
-Exemplo (Volume 2):
-
-```bash
-go run vol_2-desenvolvimento-de-apis/codigo/cap01/s01/main.go
 ```
 
 ## Requisitos

@@ -1,9 +1,8 @@
 # Go Essencial — Volume 2: Desenvolvimento de APIs
 
-Este volume reúne a trilha de estudo focada em desenvolvimento de APIs em Go.
-
-O conteúdo está em evolução: capítulos, exemplos e revisões são publicados de
-forma incremental.
+Este volume reúne uma trilha progressiva para construção de APIs HTTP em Go,
+partindo de conceitos fundamentais de `net/http` até tópicos de deploy,
+observabilidade e operação.
 
 ## Objetivos
 
@@ -11,28 +10,28 @@ forma incremental.
 - Evoluir do essencial para padrões de produção.
 - Manter um material consultável para estudo e referência.
 
-## Status Atual
+## Estrutura do Volume
 
-Neste repositório, o Volume 2 está em andamento.
+O conteúdo principal está em `book/`, organizado por capítulos. Os códigos executáveis que acompanham o texto ficam em `codigo/`.
 
-- Novos capítulos e seções são adicionados gradualmente.
-- Durante a revisão do conteúdo, os códigos são reimplementados e testados.
-- A documentação deste volume acompanha o estado publicado em `codigo/`.
+Há dois tipos de código de acompanhamento:
 
-## Estrutura Publicada
+- `codigo/capXX/sNN/`: aplicação pequena e autocontida que acompanha uma seção e pode ser usada como semente para experimentos;
+- `codigo/capXX/go-list/`: estado acumulado da GoList depois das funcionalidades desenvolvidas naquele capítulo.
 
-O conteúdo disponível no momento está em `codigo/`, com os seguintes capítulos
-já presentes:
+Os diretórios `s01`, `s02` e seguintes também ajudam a verificar se o código apresentado no texto compila e se comporta como descrito. Já os diretórios `go-list` preservam a evolução do projeto por capítulo, permitindo comparar cada etapa sem perder as versões anteriores.
 
-- `cap01/` (seções `s01` a `s06`)
-- `cap03/` (práticas `p01` a `p05` e seções `s01` a `s07`)
-- `cap04/` (projeto `go-list/`)
-- `cap05/` (seção `s01`)
-- `cap07/` (seções `s01` a `s03`)
+Exemplos:
 
-## Organização Planejada do Volume
+```text
+codigo/cap01/s01/
+codigo/cap01/s02/
+codigo/cap04/go-list/
+```
 
-O roteiro de temas segue esta progressão:
+No material publicado, consulte como referência o [código de `cap01/s01`](https://github.com/rudsonalves/go-essencial-material/tree/main/vol_2-desenvolvimento-de-apis/codigo/cap01/s01) e a [GoList do capítulo 4](https://github.com/rudsonalves/go-essencial-material/tree/main/vol_2-desenvolvimento-de-apis/codigo/cap04/go-list).
+
+Os capítulos abordam:
 
 1. HTTP com net/http
 2. Roteamento
@@ -48,21 +47,7 @@ O roteiro de temas segue esta progressão:
 12. Observabilidade
 13. Deploy
 
-## Como Executar Exemplos
-
-Exemplo simples:
-
-```bash
-go run codigo/cap01/s01/main.go
-```
-
-Exemplo de projeto estruturado:
-
-```bash
-go run codigo/cap04/go-list/cmd/*.go
-```
-
-## Geração de Material
+## Geração do PDF
 
 Use o Makefile da raiz do repositório:
 
@@ -70,4 +55,4 @@ Use o Makefile da raiz do repositório:
 make pdf VOLUME=2
 ```
 
-O artefato final é gerado conforme a configuração do projeto principal.
+O PDF final é gerado em `dist/` na raiz do projeto.
